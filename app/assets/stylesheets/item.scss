@@ -37,6 +37,7 @@
       margin: 0;
       overflow : hidden;
       text-overflow: ellipsis;
+      //テキストが領域を超えた場合に...を表示する
       display: -webkit-box;
       -webkit-box-orient: vertical;
       -webkit-line-clamp: 2;

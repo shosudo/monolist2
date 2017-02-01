@@ -4,14 +4,22 @@
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
-            <% #TODO 商品画像 %>
-            <%= image_tag("no-image.png" , alt: item['itemName']) %>
+            <% if item['mediumImageUrls'].first['imageUrl'] != nil %>
+              <%= image_tag item['mediumImageUrls'].first['imageUrl'].gsub('?_ex=128x128', '') %>
+              <%# image_tag url で画像を表示している %>
+            <% else %>
+              <%= image_tag("no-image.png" , alt: item['itemName']) %>
+              <%# 画像がない場合の処理。image_tag(source, alt: description) %>
+            <% end %>
           </div>
         </div>
         <div class="detail">
           <p class="title">
-            <% #TODO 商品タイトル %>
-            仮タイトル
+            <% if item['itemName'] != nil %>
+              <%= item['itemName'] %>
+            <% else %>
+              商品名がありません
+            <% end %>
           </p>
         </div>
         <div class="action clearfix">

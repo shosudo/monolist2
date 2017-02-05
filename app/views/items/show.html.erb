@@ -18,7 +18,9 @@
       <div class="title">
         <%= @item.title %>
       </div>
-      <%= render 'action' , item: @item %>
+      <% if logged_in? %>
+        <%= render 'action' , item: @item %>
+      <% end %>
     </div>
     <div class="item-single-side">
       <div class="side-box">
